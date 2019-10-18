@@ -24,9 +24,20 @@ fred.name = "Brick"
 fred.weight = 999.2
 fred.homePlanet = "Mars"
 ```
+Answer
+```
+The three lines of code following the class Giant will not code because the constant "homePlanet" is trying to be redeclared on the line (fred.homePlanet = "Mars"). This will cause the code to not compile.
+```
 
 Fix the class definition for `Giant` in the space below so that it **does** work:
-
+Answer
+```
+class Giant {
+ var name: String = "Fred"
+ var weight: Double = 340.0
+ var homePlanet: String = "Earth" // (changed declaration from constant to variable.)
+}
+```
 
 ## Question 2
 
@@ -48,8 +59,21 @@ bilbo.name = "Jake"
 bilbo.height = 1.42
 bilbo.homePlanet = "Saturn"
 ```
+Answer
+```
+The 3 lines of code will not run because the constant 'bilbo' is immutable, it's declaration will not be able to change.
+```
 
 Change the declaration of `bilbo` so that the above three lines of code **do** work:
+Answer
+```
+struct Alien {
+ var name: String
+ var height: Double
+ var homePlanet: String
+}
+var bilbo = Alien(name: "Bilbo", height: 1.67, homePlanet: "Venus") // (changed the declaration from constant to variable.)
+```
 
 
 ## Question 3
@@ -64,6 +88,10 @@ jason.name = "Jason"
 ```
 
 What will the value of `edgar.name` be after those three lines of code are run? What will the value of `jason.name` be? Why?
+Answer
+```
+Applying the print method the to both constants, 'edgar.name' will print "edgar" and 'jason.name' will print "Jason". The 'edgar' and 'jason' constants are different from each the other so the code will compile.
+```
 
 
 ## Question 4
