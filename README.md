@@ -105,6 +105,10 @@ charlesFromJupiter.homePlanet = "Jupiter"
 ```
 
 What will the value of `charles.homePlanet` be after the above code run? What about the value of `charlesFromJupiter.homePlanet`? Why?
+Answer
+```
+The 'charles.homePlanet' variable will run as String "Jupiter" because the default value of 'homePlanet is "Pluto". Even though it has a default value it can be changed in another declaration.
+```
 
 
 ## Question 5
@@ -127,8 +131,27 @@ struct BankAccount {
 ```
 
 Does this code work? Why or why not?
+Answer
+```
+The code will not work becuase the compiler expects the struct variables not to change, even if the properties are decalred as vairables. In order for the func to work we need to add keyword 'mutating' before the func. This will allow the properties to be mutable. 
+```
 
 Fix the `BankAccount` struct so it does work.
+Answer
+```
+struct BankAccount {
+ var owner: String
+ var balance: Double
+
+ mutating func deposit(_ amount: Double) { // mutating keyword added
+    balance += amount
+ }
+
+ mutating func withdraw(_ amount: Double) { // mutating keyword added
+    balance -= amount
+ }
+}
+```
 
 Given the code below (which should incorporate any fixes you made):
 
@@ -139,6 +162,10 @@ joeAccount.withdraw(50.0)
 ```
 
 What will the value of `joeAccount.balance` be after the above code runs? What about the value of `joeOtherAccount.balance`? Why?
+Answer
+```
+The value of 'joeOtherAccount.balance' will be 100.0 because that is the default Double in the memberwise initializer. While the balance of 'joeAccount.balance' will be 50.0, because 50.0 was withdrawn from the balance on line 'joeAccount.withdraw(50.0)'.
+```
 
 
 ## Question 6
