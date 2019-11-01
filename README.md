@@ -171,18 +171,65 @@ The value of 'joeOtherAccount.balance' will be 100.0 because that is the default
 ## Question 6
 
 a. Write a struct called `Person` that has 3 properties of type `String`: a first name, a last name and a middle name. Have the middle name be optional. Create 2 instances of a `Person`, one with a middle name and one without. Print one of their first names.
+Answer
+```
+struct Person2 {
+var firstName: String
+var middleName: String
+var lastName: String?
+}
+
+let johnPeterDoe = Person2(firstName: "Jon", middleName: "Peter", lastName: "Doe")
+let doeJon = Person2(firstName: "Doe", middleName: "", lastName: "Jon")
+print(johnPeterDoe.firstName)
+```
 
 
 b. Write a method in `Person` called `fullName` that will return a formatted string of an instance's full name. Call this method on both the instances you created in part a.
+Answer
+```
+struct Person2 {
+var firstName: String
+var middleName: String
+var lastName: String?
+
+func fullName() {
+    print("\(firstName) \(middleName) \(lastName)")
+}
+}
+```
 
 
 ## Question 7
 
 a. Create a struct called `Book` that has properties `title`, `author` and `rating`, of type `String`, `String`, and `Double` respectively. Create some instances of `Book`.
+Answer
+```
+struct Book {
+var title: String
+var auuthor: String
+var rating: Double
+}
 
+var bookInfo = Book(title: "1948", author: "George Orwell", rating: 12)
+```
 
 b. Add a method to `Book` called `isGood` that returns `true` if its rating is greater than or equal to 7
-
+Answer
+```
+struct Book {
+var title: String
+var author: String
+var rating: Double
+    
+func isGood() -> Bool {
+    if bookInfo.rating >= 7 {
+    
+    }
+    return true
+    }
+}
+```
 
 ## Question 8
 
@@ -261,7 +308,14 @@ F = 1.8 * C + 32
 K = C + 273
 
 a. Make a struct called `FreezingPoint` that has three static properties: `celsius`, `fahrenheit`, and `kelvin`. Give them all values equal to the freezing point of water.
-
+Answer
+```
+static struct FreezingPoint {
+var kelvin: Double = 273.15
+var celsius: Double = 0
+var farenheit: Double = 32
+}
+```
 
 b. Make a struct called `Celsius` that has one property: `celsius`, and two methods `getFahrenheitTemp`, and `getKelvinTemp`. Make the values of `fahrenheit` and `kelvin` correct values, converted from the `celsius` property.
 
@@ -271,9 +325,40 @@ tenDegreesCelsius.celsius //returns 10.0
 tenDegreesCelsius.getKelvinTemp() //returns 283.0
 tenDegreesCelsius.getFahrenheitTemp() //returns 50.0
 ```
+Answer
+```
+struct Celsius {
+    var celsius: Double
+    
+    func getFahrenheitTemp() -> Double {
+        1.8 * celsius + 32
+    }
+    func getKelvinTemp() -> Double {
+        celsius + 273
+    }
+}
+```
 
 c. Give the `Celsius` struct a method called `isBelowFreezing` that returns a `Bool` (true if the temperature is below freezing).
-
+Answer
+```
+struct Celsius {
+    var celsius: Double
+    
+    func getFahrenheitTemp() -> Double {
+        1.8 * celsius + 32
+    }
+    func getKelvinTemp() -> Double {
+        celsius + 273
+    }
+    func isBelowFreezing(temp: Double) -> Bool {
+    if celsius == 0 {
+    
+}
+        return true
+}
+}
+```
 
 ## Question 10
 
@@ -289,13 +374,50 @@ let colorDictArray: [[String: Double]] = [["red": 1.0, "green": 0.0, "blue": 0.0
  ["red": 0.2, "green": 0.2, "blue": 0.5],
  ["red": 0.5, "green": 0.1, "blue": 0.9],]
 ```
+Answer
+```
+struct RGBColor {
+var red: Double
+var green: Double
+var blue: Double
+}
+```
 
 
 ## Question 11
 
 a. Create a struct called `Movie` that has properties for `name` (`String`), `year` (`Int`), `genre` (`String`), `cast` (`[String]`), and `description` (`String`). Create an instance of your `Movie` class
+Answer
+```
+struct Movie {
+var name: String
+var year: Int
+var genre: String
+var cast: [String]
+var description: String
+}
+
+let movieInfo = Movie(name: "In the Mood for Love", year: 2001, genre: "Drama", cast: ["Maggie Cheung", "Tony Leung Chiu-wai"], description: "iboaieurbcosiueybfoveuibnovidfvnbsleidhfbvlhdbkvsuehbovuesy")
+```
 
 b. Create an instance method inside `Movie` called `blurb` that returns a formatted string describing the movie.
+Answer
+```
+struct Movie {
+    var name: String
+    var year: Int
+    var genre: String
+    var cast: [String]
+    var description: String
+
+func blurb() {
+    print("In the Mood for Love is one of Wong Kar-Wai's greatest achievements. Released in 2001, the film explores the limits of the human heart between two lovers, that slowly but surely, paints a portrait of longing.")
+}
+}
+
+let movieInfo = Movie(name: "In the Mood for Love", year: 2001, genre: "Drama", cast: ["Maggie Cheung", "Tony Leung Chiu-wai"], description: "iboaieurbcosiueybfoveuibnovidfvnbsleidhfbvlhdbkvsuehbovuesy")
+print(movieInfo.blurb())
+```
 
 Ex: "Borat came out in 2006. It was an odd film starring Sacha Baron Cohen as a man named Borat who was visiting America from Kazakhstan."
 
@@ -310,6 +432,12 @@ let dieHardDict: [String: Any] = ["name": "Die Hard",
  "genre": "action",
  "cast": ["Bruce Willis", "Alan Rickman"],
  "description": "John Mclain saves the day!"]
+```
+Answer
+```
+func makeMovie(dict: [String, Any]) -> Movie? {
+
+}
 ```
 
 Hint: To use a value type `Any`, you will need to cast it to its expected type.
