@@ -244,11 +244,12 @@ Work through the following tasks one by one, in order. Each time, add to the `Do
 a. Give `Dog` four properties, all with default values: `name (string), breed (string), mood (string), and hungry (boolean)`.
 
 ```swift
-var dog1 = Dog()
-dog1.name //returns "dog"
-dog1.breed //returns "unknown"
-dog1.mood //returns "calm"
-dog1.hungry //returns false
+class Dog {
+    var name: String = "Dog"
+    var breed: String = "unknown"
+    var mood: String = "calm"
+    var hungry: Bool = false
+}
 ```
 
 b. Add an instance method called `playFetch()`. It should set the dog's `hungry` property to `true`, set its mood property to `playful`, and print "Ruff!"
@@ -263,6 +264,30 @@ dog2.hungry = false
 dog2.playFetch() //prints "Ruff!"
 dog2.hungry //returns true
 dog2.mood //returns "playful"
+
+class Dog {
+    var name: String = "Dog"
+    var breed: String = "unknown"
+    var mood: String = "calm"
+    var hungry: Bool = false
+    
+    func playFetch() {
+        name = "Rhett"
+        breed = "English Setter"
+        mood = "excited"
+        hungry = true
+        print("RUFF")
+    }
+    
+    func feed() {
+        if hungry == true {
+            hungry = false
+            print("Woof")
+        } else if hungry == false {
+            print("Dog does not look hungry.")
+        }
+    }
+}
 ```
 
 c. Add an instance method called `feed()`. If the dog is hungry, it should set `hungry` to `false` and print "Woof!" If the dog is not hungry, it should print "The dog doesn't look hungry"
@@ -276,6 +301,8 @@ dog3.hungry = true
 
 dog3.feed() //prints "Woof!"
 dog3.hungry //returns false
+
+
 ```
 
 d. Add an instance method called `toString` that returns a `String` type description of the dog:
