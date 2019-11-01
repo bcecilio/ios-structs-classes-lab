@@ -437,13 +437,15 @@ struct Movie {
     var cast: [String]
     var description: String
 
-func blurb() {
-    print("In the Mood for Love is one of Wong Kar-Wai's greatest achievements. Released in 2001, the film explores the limits of the human heart between two lovers, that slowly but surely, paints a portrait of longing.")
+    mutating func blurb() -> String {
+    description = "In the Mood for Love is one of Wong Kar-Wai's greatest achievements. Released in 2001, the film explores the limits of the human heart between two lovers, that slowly but surely, paints a portrait of longing."
+    
+    return description
 }
 }
 
-let movieInfo = Movie(name: "In the Mood for Love", year: 2001, genre: "Drama", cast: ["Maggie Cheung", "Tony Leung Chiu-wai"], description: "iboaieurbcosiueybfoveuibnovidfvnbsleidhfbvlhdbkvsuehbovuesy")
-print(movieInfo.blurb())
+let movieInfo = Movie(name: "In the Mood for Love", year: 2001, genre: "Drama", cast: ["Maggie Cheung", "Tony Leung Chiu-wai"], description: "")
+print(movieInfo)
 ```
 
 Ex: "Borat came out in 2006. It was an odd film starring Sacha Baron Cohen as a man named Borat who was visiting America from Kazakhstan."
@@ -463,7 +465,7 @@ let dieHardDict: [String: Any] = ["name": "Die Hard",
 Answer
 ```
 func makeMovie(dict: [String, Any]) -> Movie? {
-
+    
 }
 ```
 
